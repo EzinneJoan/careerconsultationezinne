@@ -3,1177 +3,1163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ezinne Nwodo — Career Consultant</title>
+<title>Ezinne Nwodo Career Consultant</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --white: #FFFFFF;
-    --off-white: #F8F7FC;
-    --purple: #3B1F6A;
-    --purple-mid: #5B3A9E;
-    --purple-light: #7B5CB8;
-    --purple-muted: #9E8EC0;
-    --purple-pale: #EDE8F7;
-    --purple-pale2: #F5F2FC;
-    --gold: #C4973A;
-    --gold-shine: #D4AF5A;
-    --gold-light: #F7F1E0;
-    --ink: #1A1625;
-    --ink-light: #3D3550;
-    --ink-muted: #8A80A0;
-    --border: #E2DCF0;
-    --border-light: #EDE8F7;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--white);
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    font-weight: 400;
-    color: var(--purple);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--purple); }
-
-  .nav-cta {
-    background: var(--purple) !important;
-    color: var(--white) !important;
-    padding: 0.5rem 1.25rem !important;
-  }
-
-  .nav-cta:hover { background: var(--purple-mid) !important; color: var(--white) !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    padding-top: 64px;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-  }
-
-  .hero-left {
-    padding: 6rem 4rem 6rem 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--white);
-    border-right: 1px solid var(--border);
-  }
-
-  .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.75rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-shine));
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 5rem);
-    font-weight: 400;
-    line-height: 1.08;
-    color: var(--ink);
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-title em { font-style: italic; color: var(--purple-mid); }
-
-  .hero-sub {
-    font-size: 15px;
-    color: var(--ink-light);
-    line-height: 1.85;
-    max-width: 400px;
-    margin-bottom: 2.5rem;
-    border-left: 2px solid var(--gold);
-    padding-left: 1.25rem;
-  }
-
-  .hero-sub strong { color: var(--purple); font-weight: 500; }
-
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-  .btn-purple {
-    background: var(--purple);
-    color: var(--white);
-    padding: 0.85rem 2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-purple::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-shine));
-  }
-
-  .btn-purple:hover { background: var(--purple-mid); transform: translateY(-1px); }
-
-  .btn-ghost {
-    border: 1px solid var(--purple);
-    color: var(--purple);
-    padding: 0.85rem 2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
-    font-weight: 500;
-  }
-
-  .btn-ghost:hover { background: var(--purple); color: var(--white); }
-
-  /* HERO RIGHT */
-  .hero-right {
-    background: var(--purple);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-right::before {
-    content: '"';
-    font-family: 'Playfair Display', serif;
-    font-size: 32rem;
-    color: rgba(255,255,255,0.03);
-    position: absolute;
-    top: -8rem; left: -2rem;
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  .hero-win-label {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-shine);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-win-label::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 1px;
-    background: var(--gold-shine);
-  }
-
-  .win-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-    position: relative;
-    z-index: 1;
-  }
-
-  .win-item {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 1.75rem 1.5rem;
-    transition: background 0.2s;
-  }
-
-  .win-item:hover { background: rgba(255,255,255,0.09); }
-
-  .win-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
-    font-weight: 400;
-    color: var(--gold-shine);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .win-label { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-
-  /* DIVIDER */
-  .gold-divider {
-    height: 3px;
-    background: linear-gradient(90deg, var(--purple), var(--gold-shine), var(--purple-light));
-  }
-
-  /* SECTIONS */
-  section { padding: 6rem 0; }
-
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
-
-  .section-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-shine));
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.9rem, 3.5vw, 3rem);
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 3rem;
-    color: var(--ink);
-  }
-
-  .section-title em { font-style: italic; color: var(--purple-mid); }
-
-  /* ABOUT */
-  #about { background: var(--off-white); }
-
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-
-  .about-text p { font-size: 14.5px; color: var(--ink-light); line-height: 1.9; margin-bottom: 1.25rem; }
-  .about-text p:last-child { margin-bottom: 0; }
-  .about-text strong { color: var(--purple); font-weight: 500; }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .about-stat {
-    background: var(--white);
-    padding: 1.75rem;
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-    transition: background 0.2s;
-  }
-
-  .about-stat:hover { background: var(--purple-pale2); }
-
-  .about-stat-icon {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: var(--purple);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .about-stat-icon svg { width: 16px; height: 16px; stroke: var(--white); fill: none; stroke-width: 1.5; }
-
-  .about-stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--purple);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-
-  .about-stat-label { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
-
-  /* SERVICES */
-  #services { background: var(--white); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .service-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 2.25rem 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(59,31,106,0.1); }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--purple), var(--gold-shine));
-  }
-
-  .service-badge {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    background: var(--purple-pale);
-    color: var(--purple-mid);
-    padding: 0.3rem 0.75rem;
-    margin-bottom: 1.25rem;
-    font-weight: 500;
-  }
-
-  .service-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 1rem;
-    line-height: 1.25;
-  }
-
-  .service-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 1.25rem; }
-
-  .service-includes {
-    border-top: 1px solid var(--border-light);
-    padding-top: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .service-includes-label {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--purple-muted);
-    margin-bottom: 0.25rem;
-    font-weight: 500;
-  }
-
-  .service-include-item {
-    font-size: 13px;
-    color: var(--ink-light);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    line-height: 1.5;
-  }
-
-  .service-include-item::before {
-    content: '✦';
-    color: var(--gold);
-    font-size: 9px;
-    flex-shrink: 0;
-    margin-top: 3px;
-  }
-
-  .service-featured { background: var(--purple); border-color: var(--purple); }
-  .service-featured::before { background: linear-gradient(90deg, var(--gold-shine), var(--gold)); }
-  .service-featured .service-name { color: var(--white); }
-  .service-featured .service-desc { color: rgba(255,255,255,0.6); }
-  .service-featured .service-badge { background: rgba(255,255,255,0.1); color: var(--gold-shine); }
-  .service-featured .service-includes { border-color: rgba(255,255,255,0.12); }
-  .service-featured .service-includes-label { color: rgba(255,255,255,0.4); }
-  .service-featured .service-include-item { color: rgba(255,255,255,0.7); }
-  .service-featured .service-include-item::before { color: var(--gold-shine); }
-
-  .featured-tag {
-    position: absolute;
-    top: 1rem; right: 1rem;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--gold-shine);
-    color: var(--purple);
-    padding: 0.25rem 0.65rem;
-    font-weight: 500;
-  }
-
-  /* PROCESS */
-  #process { background: var(--off-white); }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border: 1px solid var(--border);
-  }
-
-  .process-step {
-    padding: 2.5rem 2rem;
-    border-right: 1px solid var(--border);
-    background: var(--white);
-    transition: background 0.2s;
-  }
-
-  .process-step:last-child { border-right: none; }
-  .process-step:hover { background: var(--purple-pale2); }
-
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 400;
-    color: var(--border);
-    line-height: 1;
-    margin-bottom: 1rem;
-    transition: color 0.2s;
-  }
-
-  .process-step:hover .step-num { color: var(--purple-pale); }
-
-  .step-title { font-size: 14px; font-weight: 500; color: var(--purple); margin-bottom: 0.5rem; }
-  .step-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
-
-  /* CLIENT WINS */
-  #wins { background: var(--white); }
-
-  .wins-intro { font-size: 14.5px; color: var(--ink-light); line-height: 1.85; max-width: 580px; margin-bottom: 3rem; }
-
-  .wins-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .win-card {
-    background: var(--white);
-    padding: 2rem 1.75rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.2s;
-  }
-
-  .win-card:hover { background: var(--purple-pale2); }
-
-  .win-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--purple), var(--gold-shine));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
-  .win-card:hover::after { transform: scaleX(1); }
-
-  .win-card-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 400;
-    color: var(--purple);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .win-card-label { font-size: 13.5px; color: var(--ink-light); line-height: 1.6; margin-bottom: 0.75rem; font-weight: 500; }
-
-  .win-card-detail {
-    font-size: 12.5px;
-    color: var(--ink-muted);
-    font-style: italic;
-    line-height: 1.6;
-    border-top: 1px solid var(--border-light);
-    padding-top: 0.75rem;
-  }
-
-  /* TESTIMONIALS */
-  #testimonials { background: var(--off-white); }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .testimonial-card {
-    border: 1px dashed var(--border);
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    min-height: 200px;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .testimonial-card::before {
-    content: '"';
-    font-family: 'Playfair Display', serif;
-    font-size: 7rem;
-    color: var(--purple-pale);
-    position: absolute;
-    top: -1rem; left: 1rem;
-    line-height: 1;
-  }
-
-  .testimonial-text { font-size: 13.5px; color: var(--ink-muted); font-style: italic; line-height: 1.75; position: relative; z-index: 1; }
-  .testimonial-author { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
-
-  /* CTA BAND */
-  .cta-band {
-    background: var(--purple);
-    padding: 5.5rem 2.5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-band::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold-shine), transparent);
-  }
-
-  .cta-band::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold-shine), transparent);
-  }
-
-  .cta-band-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-shine);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  .cta-band-eyebrow::before, .cta-band-eyebrow::after {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: var(--gold-shine);
-  }
-
-  .cta-band-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-band-title em { font-style: italic; color: var(--gold-shine); }
-
-  .cta-band-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 2.5rem;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-band-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
-  .btn-gold {
-    background: var(--gold-shine);
-    color: var(--purple);
-    padding: 0.9rem 2.25rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
-  .btn-gold:hover { background: var(--gold); transform: translateY(-1px); }
-
-  .btn-white-outline {
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    padding: 0.9rem 2.25rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn-white-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
-
-  /* CONTACT */
-  #contact { background: var(--white); }
-
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-
-  .contact-left p { font-size: 14px; color: var(--ink-light); line-height: 1.85; margin-bottom: 2rem; }
-
-  .contact-details { display: flex; flex-direction: column; gap: 1rem; }
-
-  .contact-detail-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 14px;
-    color: var(--ink-light);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .contact-detail-item:hover { color: var(--purple); }
-  .contact-detail-item svg { width: 16px; height: 16px; stroke: var(--purple); fill: none; stroke-width: 1.5; flex-shrink: 0; }
-
-  .contact-socials { display: flex; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
-
-  .social-link {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--purple);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    padding: 0.6rem 1.25rem;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 500;
-  }
-
-  .social-link:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
-  .social-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.5; }
-
-  .contact-right {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    padding: 2.5rem;
-  }
-
-  .contact-right-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--purple); margin-bottom: 0.5rem; }
-  .contact-right-sub { font-size: 13px; color: var(--ink-muted); margin-bottom: 1.75rem; line-height: 1.65; }
-
-  .contact-options { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-
-  .contact-option {
-    background: var(--white);
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-  }
-
-  .contact-option:hover { background: var(--purple-pale2); }
-
-  .contact-option-icon {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--purple);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .contact-option-icon svg { width: 15px; height: 15px; stroke: var(--white); fill: none; stroke-width: 1.5; }
-  .contact-option-label { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 0.1rem; }
-  .contact-option-sub { font-size: 12px; color: var(--ink-muted); }
-  .contact-option-arrow { margin-left: auto; font-size: 16px; color: var(--purple-muted); }
-
-  /* FOOTER */
-  footer {
-    background: var(--purple);
-    padding: 1.75rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.04em;
-  }
-
-  .footer-logo { font-family: 'Playfair Display', serif; font-size: 16px; color: rgba(255,255,255,0.6); }
-
-  .footer-link { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 12px; transition: color 0.2s; }
-  .footer-link:hover { color: var(--gold-shine); }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-left > * { animation: fadeUp 0.75s ease both; }
-  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-  .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
-  .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
-  .hero-left > *:nth-child(4) { animation-delay: 0.46s; }
-
-  .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .process-steps { grid-template-columns: 1fr 1fr; }
-    .process-step:nth-child(2) { border-right: none; }
-    .process-step { border-bottom: 1px solid var(--border); }
-  }
-
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 3.5rem 1.5rem; }
-    .hero-right { padding: 3rem 1.5rem; min-height: 300px; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    nav { padding: 0 1rem; }
-    .nav-links { gap: 0.75rem; }
-    .nav-links li:nth-child(n+4) { display: none; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    .process-steps { grid-template-columns: 1fr; }
-    .process-step { border-right: none; }
-  }
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+ :root {
+  --white: #FFFFFF;
+  --off-white: #F8F7FC;
+  --purple: #3B1F6A;
+  --purple-mid: #5B3A9E;
+  --purple-light: #7B5CB8;
+  --purple-muted: #9E8EC0;
+  --purple-pale: #EDE8F7;
+  --purple-pale2: #F5F2FC;
+  --gold: #C4973A;
+  --gold-shine: #D4AF5A;
+  --gold-light: #F7F1E0;
+  --ink: #1A1625;
+  --ink-light: #3D3550;
+  --ink-muted: #8A80A0;
+  --border: #E2DCF0;
+  --border-light: #EDE8F7;
+ }
+
+ html { scroll-behavior: smooth; }
+
+ body {
+  font-family: 'Jost', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+ }
+
+ /* NAV */
+ nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+ }
+
+ .nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--purple);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+ }
+
+ .nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+ }
+
+ .nav-links a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+ }
+
+ .nav-links a:hover { color: var(--purple); }
+
+ .nav-cta {
+  background: var(--purple) !important;
+  color: var(--white) !important;
+  padding: 0.5rem 1.25rem !important;
+ }
+
+ .nav-cta:hover { background: var(--purple-mid) !important; color: var(--white) !important; }
+
+ /* HERO */
+ .hero {
+  min-height: 100vh;
+  padding-top: 64px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+ }
+
+ .hero-left {
+  padding: 6rem 4rem 6rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+ }
+
+ .hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+ }
+
+ .hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-shine));
+ }
+
+ .hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+ }
+
+ .hero-title em { font-style: italic; color: var(--purple-mid); }
+
+ .hero-sub {
+  font-size: 15px;
+  color: var(--ink-light);
+  line-height: 1.85;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+  border-left: 2px solid var(--gold);
+  padding-left: 1.25rem;
+ }
+
+ .hero-sub strong { color: var(--purple); font-weight: 500; }
+
+ .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+ .btn-purple {
+  background: var(--purple);
+  color: var(--white);
+  padding: 0.85rem 2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+ }
+
+ .btn-purple::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-shine));
+ }
+
+ .btn-purple:hover { background: var(--purple-mid); transform: translateY(-1px); }
+
+ .btn-ghost {
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  padding: 0.85rem 2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+  font-weight: 500;
+ }
+
+ .btn-ghost:hover { background: var(--purple); color: var(--white); }
+
+ /* HERO RIGHT */
+ .hero-right {
+  background: var(--purple);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+  position: relative;
+  overflow: hidden;
+ }
+
+ .hero-right::before {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  font-size: 32rem;
+  color: rgba(255,255,255,0.03);
+  position: absolute;
+  top: -8rem; left: -2rem;
+  line-height: 1;
+  pointer-events: none;
+ }
+
+ .hero-win-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-shine);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+ }
+
+ .hero-win-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold-shine);
+ }
+
+ .win-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 1;
+ }
+
+ .win-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1.75rem 1.5rem;
+  transition: background 0.2s;
+ }
+
+ .win-item:hover { background: rgba(255,255,255,0.09); }
+
+ .win-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--gold-shine);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+ }
+
+ .win-label { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+ /* DIVIDER */
+ .gold-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--gold-shine), var(--purple-light));
+ }
+
+ /* SECTIONS */
+ section { padding: 6rem 0; }
+
+ .container { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
+
+ .section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+ }
+
+ .section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-shine));
+ }
+
+ .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+  color: var(--ink);
+ }
+
+ .section-title em { font-style: italic; color: var(--purple-mid); }
+
+ /* ABOUT */
+ #about { background: var(--off-white); }
+
+ .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+ .about-text p { font-size: 14.5px; color: var(--ink-light); line-height: 1.9; margin-bottom: 1.25rem; }
+ .about-text p:last-child { margin-bottom: 0; }
+ .about-text strong { color: var(--purple); font-weight: 500; }
+
+ .about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+ }
+
+ .about-stat {
+  background: var(--white);
+  padding: 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: background 0.2s;
+ }
+
+ .about-stat:hover { background: var(--purple-pale2); }
+
+ .about-stat-icon {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+ }
+
+ .about-stat-icon svg { width: 16px; height: 16px; stroke: var(--white); fill: none; stroke-width: 1.5; }
+
+ .about-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--purple);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+ }
+
+ .about-stat-label { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+ /* SERVICES */
+ #services { background: var(--white); }
+
+ .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+ }
+
+ .service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+ }
+
+ .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(59,31,106,0.1); }
+
+ .service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--gold-shine));
+ }
+
+ .service-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--purple-pale);
+  color: var(--purple-mid);
+  padding: 0.3rem 0.75rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+ }
+
+ .service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+ }
+
+ .service-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 1.25rem; }
+
+ .service-includes {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+ }
+
+ .service-includes-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple-muted);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+ }
+
+ .service-include-item {
+  font-size: 13px;
+  color: var(--ink-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.5;
+ }
+
+ .service-include-item::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 9px;
+  flex-shrink: 0;
+  margin-top: 3px;
+ }
+
+ .service-featured { background: var(--purple); border-color: var(--purple); }
+ .service-featured::before { background: linear-gradient(90deg, var(--gold-shine), var(--gold)); }
+ .service-featured .service-name { color: var(--white); }
+ .service-featured .service-desc { color: rgba(255,255,255,0.6); }
+ .service-featured .service-badge { background: rgba(255,255,255,0.1); color: var(--gold-shine); }
+ .service-featured .service-includes { border-color: rgba(255,255,255,0.12); }
+ .service-featured .service-includes-label { color: rgba(255,255,255,0.4); }
+ .service-featured .service-include-item { color: rgba(255,255,255,0.7); }
+ .service-featured .service-include-item::before { color: var(--gold-shine); }
+
+ .featured-tag {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--gold-shine);
+  color: var(--purple);
+  padding: 0.25rem 0.65rem;
+  font-weight: 500;
+ }
+
+ /* PROCESS */
+ #process { background: var(--off-white); }
+
+ .process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+ }
+
+ .process-step {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+  transition: background 0.2s;
+ }
+
+ .process-step:last-child { border-right: none; }
+ .process-step:hover { background: var(--purple-pale2); }
+
+ .step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+ }
+
+ .process-step:hover .step-num { color: var(--purple-pale); }
+
+ .step-title { font-size: 14px; font-weight: 500; color: var(--purple); margin-bottom: 0.5rem; }
+ .step-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+
+ /* CLIENT WINS */
+ #wins { background: var(--white); }
+
+ .wins-intro { font-size: 14.5px; color: var(--ink-light); line-height: 1.85; max-width: 580px; margin-bottom: 3rem; }
+
+ .wins-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+ }
+
+ .win-card {
+  background: var(--white);
+  padding: 2rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+ }
+
+ .win-card:hover { background: var(--purple-pale2); }
+
+ .win-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--gold-shine));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+ }
+
+ .win-card:hover::after { transform: scaleX(1); }
+
+ .win-card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--purple);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+ }
+
+ .win-card-label { font-size: 13.5px; color: var(--ink-light); line-height: 1.6; margin-bottom: 0.75rem; font-weight: 500; }
+
+ .win-card-detail {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  font-style: italic;
+  line-height: 1.6;
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.75rem;
+ }
+
+ /* TESTIMONIALS */
+ #testimonials { background: var(--off-white); }
+
+ .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+ }
+
+ .testimonial-card {
+  border: 1px dashed var(--border);
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 200px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+ }
+
+ .testimonial-card::before {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  font-size: 7rem;
+  color: var(--purple-pale);
+  position: absolute;
+  top: -1rem; left: 1rem;
+  line-height: 1;
+ }
+
+ .testimonial-text { font-size: 13.5px; color: var(--ink-muted); font-style: italic; line-height: 1.75; position: relative; z-index: 1; }
+ .testimonial-author { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
+
+ /* CTA BAND */
+ .cta-band {
+  background: var(--purple);
+  padding: 5.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+ }
+
+ .cta-band::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-shine), transparent);
+ }
+
+ .cta-band::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-shine), transparent);
+ }
+
+ .cta-band-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-shine);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+ }
+
+ .cta-band-eyebrow::before, .cta-band-eyebrow::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-shine);
+ }
+
+ .cta-band-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .cta-band-title em { font-style: italic; color: var(--gold-shine); }
+
+ .cta-band-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .cta-band-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+ .btn-gold {
+  background: var(--gold-shine);
+  color: var(--purple);
+  padding: 0.9rem 2.25rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+ }
+
+ .btn-gold:hover { background: var(--gold); transform: translateY(-1px); }
+
+ .btn-white-outline {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  padding: 0.9rem 2.25rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: inline-block;
+ }
+
+ .btn-white-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+
+ /* CONTACT */
+ #contact { background: var(--white); }
+
+ .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+ .contact-left p { font-size: 14px; color: var(--ink-light); line-height: 1.85; margin-bottom: 2rem; }
+
+ .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+
+ .contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 14px;
+  color: var(--ink-light);
+  text-decoration: none;
+  transition: color 0.2s;
+ }
+
+ .contact-detail-item:hover { color: var(--purple); }
+ .contact-detail-item svg { width: 16px; height: 16px; stroke: var(--purple); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+
+ .contact-socials { display: flex; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
+
+ .social-link {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.6rem 1.25rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+ }
+
+ .social-link:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
+ .social-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+ .contact-right {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+ }
+
+ .contact-right-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--purple); margin-bottom: 0.5rem; }
+ .contact-right-sub { font-size: 13px; color: var(--ink-muted); margin-bottom: 1.75rem; line-height: 1.65; }
+
+ .contact-options { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+
+ .contact-option {
+  background: var(--white);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+ }
+
+ .contact-option:hover { background: var(--purple-pale2); }
+
+ .contact-option-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+ }
+
+ .contact-option-icon svg { width: 15px; height: 15px; stroke: var(--white); fill: none; stroke-width: 1.5; }
+ .contact-option-label { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 0.1rem; }
+ .contact-option-sub { font-size: 12px; color: var(--ink-muted); }
+ .contact-option-arrow { margin-left: auto; font-size: 16px; color: var(--purple-muted); }
+
+ /* FOOTER */
+ footer {
+  background: var(--purple);
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+ }
+
+ .footer-logo { font-family: 'Playfair Display', serif; font-size: 16px; color: rgba(255,255,255,0.6); }
+
+ .footer-link { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+ .footer-link:hover { color: var(--gold-shine); }
+
+ /* ANIMATIONS */
+ @keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+ }
+
+ .hero-left > * { animation: fadeUp 0.75s ease both; }
+ .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+ .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
+ .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
+ .hero-left > *:nth-child(4) { animation-delay: 0.46s; }
+
+ .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+ .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+ /* RESPONSIVE */
+ @media (max-width: 900px) {
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-step:nth-child(2) { border-right: none; }
+  .process-step { border-bottom: 1px solid var(--border); }
+ }
+
+ @media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 3.5rem 1.5rem; }
+  .hero-right { padding: 3rem 1.5rem; min-height: 300px; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  nav { padding: 0 1rem; }
+  .nav-links { gap: 0.75rem; }
+  .nav-links li:nth-child(n+4) { display: none; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step { border-right: none; }
+ }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Ezinne Nwodo</a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#wins">Results</a></li>
-    <li><a href="https://bit.ly/presessioncounsellingform" target="_blank" class="nav-cta">Begin Your Journey</a></li>
-  </ul>
+ <a href="#" class="nav-logo">Ezinne Nwodo</a>
+ <ul class="nav-links">
+  <li><a href="#services">Services</a></li>
+  <li><a href="#process">Process</a></li>
+  <li><a href="#wins">Results</a></li>
+  <li><a href="https://forms.gle/zATxuWakhT6nJe8h9" target="_blank" class="nav-cta">Get Started</a></li>
+ </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Career Consultant · Lagos, Nigeria</div>
-    <h1 class="hero-title">Your career,<br><em>deliberately</em><br>designed.</h1>
-    <p class="hero-sub">
-      I help professionals and fresh graduates <strong>get clear, get confident, and get hired</strong> — through strategic CV revamps, LinkedIn optimization, personal branding, and hands-on career coaching.
-    </p>
-    <div class="hero-actions">
-      <a href="https://bit.ly/presessioncounsellingform" target="_blank" class="btn-purple">Begin Your Journey</a>
-      <a href="#services" class="btn-ghost">See Services</a>
-    </div>
+ <div class="hero-left">
+  <div class="hero-eyebrow">Career Consultant · Lagos, Nigeria</div>
+  <h1 class="hero-title">Your career,<br><em>deliberately</em><br>designed.</h1>
+  <p class="hero-sub">
+   I help professionals and fresh graduates <strong>get clear, get confident, and get hired</strong> through strategic CV revamps, LinkedIn optimization, personal branding, and hands-on career coaching.
+  </p>
+  <div class="hero-actions">
+   <a href="https://forms.gle/zATxuWakhT6nJe8h9" target="_blank" class="btn-purple">Get Started</a>
+   <a href="#services" class="btn-ghost">See Services</a>
   </div>
-  <div class="hero-right">
-    <div class="hero-win-label">Client results so far</div>
-    <div class="win-grid">
-      <div class="win-item">
-        <div class="win-num">10+</div>
-        <div class="win-label">Clients served since launching</div>
-      </div>
-      <div class="win-item">
-        <div class="win-num">7+</div>
-        <div class="win-label">CVs revamped &amp; optimised</div>
-      </div>
-      <div class="win-item">
-        <div class="win-num">3</div>
-        <div class="win-label">Full package clients</div>
-      </div>
-      <div class="win-item">
-        <div class="win-num">2</div>
-        <div class="win-label">LinkedIn profiles optimised</div>
-      </div>
-    </div>
+ </div>
+ <div class="hero-right">
+  <div class="hero-win-label">Client results so far</div>
+  <div class="win-grid">
+   <div class="win-item">
+    <div class="win-num">10+</div>
+    <div class="win-label">Clients served since launching</div>
+   </div>
+   <div class="win-item">
+    <div class="win-num">7+</div>
+    <div class="win-label">CVs revamped &amp; optimised</div>
+   </div>
+   <div class="win-item">
+    <div class="win-num">3</div>
+    <div class="win-label">Full package clients</div>
+   </div>
+   <div class="win-item">
+    <div class="win-num">2</div>
+    <div class="win-label">LinkedIn profiles optimised</div>
+   </div>
   </div>
+ </div>
 </section>
 
 <div class="gold-divider"></div>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="container">
-    <div class="section-eyebrow fade-in">Who I am</div>
-    <div class="about-grid">
-      <div class="about-text fade-in">
-        <h2 class="section-title" style="margin-bottom:1.5rem;">A consultant who has<br><em>been in your shoes.</em></h2>
-        <p>I'm Ezinne — a brand communications and marketing professional with 3+ years of experience helping organizations tell their stories and reach their goals. Along the way, I discovered a deep passion for helping <strong>people</strong> do the same.</p>
-        <p>I know what it feels like to navigate the job market, craft your story from scratch, and figure out how to stand out in a crowded space. That lived experience is exactly what I bring into every consultation session.</p>
-        <p>Currently advancing my expertise with an <strong>MBA at Lagos Business School</strong>, I blend strategic thinking with genuine human care — because your career is personal, and your support should be too.</p>
-      </div>
-      <div class="about-right fade-in">
-        <div class="about-stat">
-          <div class="about-stat-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <div class="about-stat-num">10+</div>
-            <div class="about-stat-label">Clients helped across career stages</div>
-          </div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div>
-            <div class="about-stat-num">3+</div>
-            <div class="about-stat-label">Years in brand strategy &amp; communications</div>
-          </div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <div>
-            <div class="about-stat-num">MBA</div>
-            <div class="about-stat-label">In progress · Lagos Business School</div>
-          </div>
-        </div>
-      </div>
+ <div class="container">
+  <div class="section-eyebrow fade-in">Who I am</div>
+  <div class="about-grid">
+   <div class="about-text fade-in">
+    <h2 class="section-title" style="margin-bottom:1.5rem;">A consultant who has<br><em>been in your shoes.</em></h2>
+    <p>I'm Ezinne a brand communications and marketing professional with 3+ years of experience helping organizations tell their stories and reach their goals. Along the way, I discovered a deep passion for helping <strong>people</strong> do the same.</p>
+    <p>I know what it feels like to navigate the job market, craft your story from scratch, and figure out how to stand out in a crowded space. That lived experience is exactly what I bring into every consultation session.</p>
+    <p>Currently advancing my expertise with an <strong>MBA at Lagos Business School</strong>, I blend strategic thinking with genuine human care because your career is personal, and your support should be too.</p>
+   </div>
+   <div class="about-right fade-in">
+    <div class="about-stat">
+     <div class="about-stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+     </div>
+     <div>
+      <div class="about-stat-num">10+</div>
+      <div class="about-stat-label">Clients helped across career stages</div>
+     </div>
     </div>
+    <div class="about-stat">
+     <div class="about-stat-icon">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+     </div>
+     <div>
+      <div class="about-stat-num">3+</div>
+      <div class="about-stat-label">Years in brand strategy &amp; communications</div>
+     </div>
+    </div>
+    <div class="about-stat">
+     <div class="about-stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+     </div>
+     <div>
+      <div class="about-stat-num">MBA</div>
+      <div class="about-stat-label">In progress · Lagos Business School</div>
+     </div>
+    </div>
+   </div>
   </div>
+ </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="container">
-    <div class="section-eyebrow fade-in">What I offer</div>
-    <h2 class="section-title fade-in">Services built around<br><em>your goals.</em></h2>
-    <div class="services-grid fade-in">
+ <div class="container">
+  <div class="section-eyebrow fade-in">What I offer</div>
+  <h2 class="section-title fade-in">Services built around<br><em>your goals.</em></h2>
+  <div class="services-grid fade-in">
 
-      <div class="service-card">
-        <div class="service-badge">CV Revamp</div>
-        <div class="service-name">A CV that opens doors</div>
-        <div class="service-desc">Whether you're targeting a specific role or want a broadly optimised CV, I'll do a full rewrite and restructure tailored to your direction — ATS-friendly and recruiter-ready.</div>
-        <div class="service-includes">
-          <div class="service-includes-label">What you get</div>
-          <div class="service-include-item">15–30 min discovery call to understand your goals</div>
-          <div class="service-include-item">Word copy — fully editable, yours to update</div>
-          <div class="service-include-item">PDF copy — polished and ready to send</div>
-          <div class="service-include-item">Role-specific or general version, your choice</div>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-badge">LinkedIn Optimization</div>
-        <div class="service-name">A profile that works while you sleep</div>
-        <div class="service-desc">I'll revamp every section of your LinkedIn — from headline to skills — so you show up in recruiter searches and attract the right opportunities.</div>
-        <div class="service-includes">
-          <div class="service-includes-label">What you get</div>
-          <div class="service-include-item">15–30 min discovery call</div>
-          <div class="service-include-item">Direct edits on your profile, or a full document to implement yourself</div>
-          <div class="service-include-item">Tips and best practices for ongoing profile management</div>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-badge">Career Strategy Session</div>
-        <div class="service-name">Clarity, direction &amp; a plan</div>
-        <div class="service-desc">A focused 1hr 30min deep-dive into your personal brand, job search strategy, and career direction. You'll leave with clarity and a concrete action plan.</div>
-        <div class="service-includes">
-          <div class="service-includes-label">What you get</div>
-          <div class="service-include-item">1hr 30min 1:1 strategy call</div>
-          <div class="service-include-item">Personal branding direction</div>
-          <div class="service-include-item">Job search strategy tailored to your situation</div>
-          <div class="service-include-item">Clear, actionable next steps</div>
-        </div>
-      </div>
-
-      <div class="service-card service-featured">
-        <div class="featured-tag">Best Value</div>
-        <div class="service-badge">Full Package</div>
-        <div class="service-name">The complete career transformation</div>
-        <div class="service-desc">Everything above, combined with structured ongoing support so you're never navigating your job search alone. The most comprehensive way to land the role you actually want.</div>
-        <div class="service-includes">
-          <div class="service-includes-label">What you get</div>
-          <div class="service-include-item">CV Revamp + LinkedIn Optimization + Career Strategy Session</div>
-          <div class="service-include-item">Weekly check-ins for 3 weeks</div>
-          <div class="service-include-item">Open Q&amp;A between sessions</div>
-          <div class="service-include-item">End-to-end support as you execute your search</div>
-        </div>
-      </div>
-
+   <div class="service-card">
+    <div class="service-badge">CV Revamp</div>
+    <div class="service-name">A CV that opens doors</div>
+    <div class="service-desc">Whether you're targeting a specific role or want a broadly optimised CV, I'll do a full rewrite and restructure tailored to your direction ATS-friendly and recruiter-ready.</div>
+    <div class="service-includes">
+     <div class="service-includes-label">What you get</div>
+     <div class="service-include-item">15–30 min discovery call to understand your goals</div>
+     <div class="service-include-item">Word copy fully editable, yours to update</div>
+     <div class="service-include-item">PDF copy polished and ready to send</div>
+     <div class="service-include-item">Role-specific or general version, your choice</div>
     </div>
+   </div>
+
+   <div class="service-card">
+    <div class="service-badge">LinkedIn Optimization</div>
+    <div class="service-name">A profile that works while you sleep</div>
+    <div class="service-desc">I'll revamp every section of your LinkedIn from headline to skills so you show up in recruiter searches and attract the right opportunities.</div>
+    <div class="service-includes">
+     <div class="service-includes-label">What you get</div>
+     <div class="service-include-item">15–30 min discovery call</div>
+     <div class="service-include-item">Direct edits on your profile, or a full document to implement yourself</div>
+     <div class="service-include-item">Tips and best practices for ongoing profile management</div>
+    </div>
+   </div>
+
+   <div class="service-card">
+    <div class="service-badge">Career Strategy Session</div>
+    <div class="service-name">Clarity, direction &amp; a plan</div>
+    <div class="service-desc">A focused 1hr 30min deep-dive into your personal brand, job search strategy, and career direction. You'll leave with clarity and a concrete action plan.</div>
+    <div class="service-includes">
+     <div class="service-includes-label">What you get</div>
+     <div class="service-include-item">1hr 30min 1:1 strategy call</div>
+     <div class="service-include-item">Personal branding direction</div>
+     <div class="service-include-item">Job search strategy tailored to your situation</div>
+     <div class="service-include-item">Clear, actionable next steps</div>
+    </div>
+   </div>
+
+   <div class="service-card service-featured">
+    <div class="featured-tag">Best Value</div>
+    <div class="service-badge">Full Package</div>
+    <div class="service-name">The complete career transformation</div>
+    <div class="service-desc">Everything above, combined with structured ongoing support so you're never navigating your job search alone. The most comprehensive way to land the role you actually want.</div>
+    <div class="service-includes">
+     <div class="service-includes-label">What you get</div>
+     <div class="service-include-item">CV Revamp + LinkedIn Optimization + Career Strategy Session</div>
+     <div class="service-include-item">Weekly check-ins for 3 weeks</div>
+     <div class="service-include-item">Open Q&amp;A between sessions</div>
+     <div class="service-include-item">End-to-end support as you execute your search</div>
+    </div>
+   </div>
+
   </div>
+ </div>
 </section>
 
 <div class="gold-divider"></div>
 
 <!-- PROCESS -->
 <section id="process">
-  <div class="container">
-    <div class="section-eyebrow fade-in">How it works</div>
-    <h2 class="section-title fade-in">Simple steps to get<br><em>started.</em></h2>
-    <div class="process-steps fade-in">
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <div class="step-title">Fill the intake form</div>
-        <div class="step-desc">Share a little about yourself, your situation, and the service you're interested in — so I come fully prepared.</div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <div class="step-title">Discovery call</div>
-        <div class="step-desc">We hop on a short call (15–30 mins, or 1hr 30 for the full package) to align on your goals and what success looks like for you.</div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <div class="step-title">We get to work</div>
-        <div class="step-desc">I build your CV, optimise your profile, or map out your strategy — tailored entirely to your situation.</div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">04</div>
-        <div class="step-title">You go get it</div>
-        <div class="step-desc">You walk away polished, confident, and ready to pursue the opportunities you deserve.</div>
-      </div>
-    </div>
+ <div class="container">
+  <div class="section-eyebrow fade-in">How it works</div>
+  <h2 class="section-title fade-in">Simple steps to get<br><em>started.</em></h2>
+  <div class="process-steps fade-in">
+   <div class="process-step">
+    <div class="step-num">01</div>
+    <div class="step-title">Fill the intake form</div>
+    <div class="step-desc">Share a little about yourself, your situation, and the service you're interested in so I come fully prepared.</div>
+   </div>
+   <div class="process-step">
+    <div class="step-num">02</div>
+    <div class="step-title">Discovery call</div>
+    <div class="step-desc">We hop on a short call (15 to 30 mins, or 1hr 30 for the full package) to align on your goals and what success looks like for you.</div>
+   </div>
+   <div class="process-step">
+    <div class="step-num">03</div>
+    <div class="step-title">We get to work</div>
+    <div class="step-desc">I build your CV, optimise your profile, or map out your strategy tailored entirely to your situation.</div>
+   </div>
+   <div class="process-step">
+    <div class="step-num">04</div>
+    <div class="step-title">You go get it</div>
+    <div class="step-desc">You walk away polished, confident, and ready to pursue the opportunities you deserve.</div>
+   </div>
   </div>
+ </div>
 </section>
 
 <!-- CLIENT WINS -->
 <section id="wins">
-  <div class="container">
-    <div class="section-eyebrow fade-in">Proof it works</div>
-    <h2 class="section-title fade-in">Real people,<br><em>real results.</em></h2>
-    <p class="wins-intro fade-in">Every client I work with comes in with a unique situation — and leaves with a clear direction. Here's a snapshot of what we've accomplished together.</p>
-    <div class="wins-grid fade-in">
-      <div class="win-card">
-        <div class="win-card-num">7+</div>
-        <div class="win-card-label">CVs fully revamped and optimised</div>
-        <div class="win-card-detail">Across industries — from fresh graduates to experienced professionals ready to make their next move.</div>
-      </div>
-      <div class="win-card">
-        <div class="win-card-num">3</div>
-        <div class="win-card-label">Clients completed the full package</div>
-        <div class="win-card-detail">End-to-end support from CV to strategy to ongoing job search coaching.</div>
-      </div>
-      <div class="win-card">
-        <div class="win-card-num">2</div>
-        <div class="win-card-label">LinkedIn profiles fully optimised</div>
-        <div class="win-card-detail">Profiles rebuilt to attract the right opportunities and tell a compelling professional story.</div>
-      </div>
-      <div class="win-card">
-        <div class="win-card-num">10+</div>
-        <div class="win-card-label">Professionals supported so far</div>
-        <div class="win-card-detail">And growing — every client leaves with more clarity, confidence, and direction than they came with.</div>
-      </div>
-    </div>
+ <div class="container">
+  <div class="section-eyebrow fade-in">Proof it works</div>
+  <h2 class="section-title fade-in">Real people,<br><em>real results.</em></h2>
+  <p class="wins-intro fade-in">Every client I work with comes in with a unique situation and leaves with a clear direction. Here's a snapshot of what we've accomplished together.</p>
+  <div class="wins-grid fade-in">
+   <div class="win-card">
+    <div class="win-card-num">7+</div>
+    <div class="win-card-label">CVs fully revamped and optimised</div>
+    <div class="win-card-detail">Across industries from fresh graduates to experienced professionals ready to make their next move.</div>
+   </div>
+   <div class="win-card">
+    <div class="win-card-num">3</div>
+    <div class="win-card-label">Clients completed the full package</div>
+    <div class="win-card-detail">End-to-end support from CV to strategy to ongoing job search coaching.</div>
+   </div>
+   <div class="win-card">
+    <div class="win-card-num">2</div>
+    <div class="win-card-label">LinkedIn profiles fully optimised</div>
+    <div class="win-card-detail">Profiles rebuilt to attract the right opportunities and tell a compelling professional story.</div>
+   </div>
+   <div class="win-card">
+    <div class="win-card-num">10+</div>
+    <div class="win-card-label">Professionals supported so far</div>
+    <div class="win-card-detail">And growing every client leaves with more clarity, confidence, and direction than they came with.</div>
+   </div>
   </div>
+ </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="container">
-    <div class="section-eyebrow fade-in">Client feedback</div>
-    <h2 class="section-title fade-in">What clients<br><em>say.</em></h2>
-    <div class="testimonials-grid fade-in">
-      <div class="testimonial-card">
-        <div class="testimonial-text">Testimonial coming soon — great things are being said!</div>
-        <div class="testimonial-author">Client · Role · Company</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">Testimonial coming soon — great things are being said!</div>
-        <div class="testimonial-author">Client · Role · Company</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">Testimonial coming soon — great things are being said!</div>
-        <div class="testimonial-author">Client · Role · Company</div>
-      </div>
-    </div>
+ <div class="container">
+  <div class="section-eyebrow fade-in">Client feedback</div>
+  <h2 class="section-title fade-in">What clients<br><em>say.</em></h2>
+  <div class="testimonials-grid fade-in">
+   <div class="testimonial-card">
+    <div class="testimonial-text">Testimonial coming soon great things are being said!</div>
+    <div class="testimonial-author">Client · Role · Company</div>
+   </div>
+   <div class="testimonial-card">
+    <div class="testimonial-text">Testimonial coming soon great things are being said!</div>
+    <div class="testimonial-author">Client · Role · Company</div>
+   </div>
+   <div class="testimonial-card">
+    <div class="testimonial-text">Testimonial coming soon great things are being said!</div>
+    <div class="testimonial-author">Client · Role · Company</div>
+   </div>
   </div>
+ </div>
 </section>
 
 <!-- CTA BAND -->
 <div class="cta-band fade-in">
-  <div class="cta-band-eyebrow">Your next chapter starts here</div>
-  <h2 class="cta-band-title">Ready to invest in<br><em>your career?</em></h2>
-  <p class="cta-band-sub">Fill in the short intake form and I'll be in touch to schedule your discovery call.</p>
-  <div class="cta-band-actions">
-    <a href="https://bit.ly/presessioncounsellingform" target="_blank" class="btn-gold">Begin Your Journey</a>
-    <a href="mailto:zinnynwodo@gmail.com" class="btn-white-outline">Send an Email</a>
-  </div>
+ <div class="cta-band-eyebrow">Your next chapter starts here</div>
+ <h2 class="cta-band-title">Ready to take the<br><em>first step?</em></h2>
+ <p class="cta-band-sub">Fill in the short form and I'll be in touch within 24 to 48 hours. No commitment required just a conversation.</p>
+ <div class="cta-band-actions">
+  <a href="https://forms.gle/zATxuWakhT6nJe8h9" target="_blank" class="btn-gold">Get Started</a>
+  <a href="mailto:zinnynwodo@gmail.com" class="btn-white-outline">Send an Enquiry</a>
+ </div>
 </div>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <div class="section-eyebrow fade-in">Get in touch</div>
-    <h2 class="section-title fade-in">Let's talk about<br><em>your goals.</em></h2>
-    <div class="contact-grid fade-in">
+ <div class="container">
+  <div class="section-eyebrow fade-in">Further enquiries</div>
+  <h2 class="section-title fade-in">Still have<br><em>questions?</em></h2>
+  <div class="contact-grid fade-in">
 
-      <div class="contact-left">
-        <p>Have a question before you fill the form? Feel free to reach out directly — I'm happy to help you figure out which service is the right fit for where you are right now.</p>
-        <div class="contact-details">
-          <a href="mailto:zinnynwodo@gmail.com" class="contact-detail-item">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            zinnynwodo@gmail.com
-          </a>
-          <a href="tel:+2347039917112" class="contact-detail-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.05 3.4 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
-            +234 (0)703 991 7112
-          </a>
-        </div>
-        <div class="contact-socials">
-          <a href="https://www.linkedin.com/in/ezinne-nwodo-0b3567228/" target="_blank" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://www.instagram.com/zinny.nw_" target="_blank" class="social-link">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Instagram
-          </a>
-          <a href="https://x.com/ezinnenwodo1" target="_blank" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-            Twitter / X
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-right">
-        <div class="contact-right-title">Ready to get started?</div>
-        <div class="contact-right-sub">Choose how you'd like to take the next step — every journey begins with a single action.</div>
-        <div class="contact-options">
-          <a href="https://bit.ly/presessioncounsellingform" target="_blank" class="contact-option">
-            <div class="contact-option-icon">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div>
-              <div class="contact-option-label">Fill the intake form</div>
-              <div class="contact-option-sub">Begin your journey — takes 3 minutes</div>
-            </div>
-            <div class="contact-option-arrow">→</div>
-          </a>
-          <a href="mailto:zinnynwodo@gmail.com" class="contact-option">
-            <div class="contact-option-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-option-label">Send an email</div>
-              <div class="contact-option-sub">zinnynwodo@gmail.com</div>
-            </div>
-            <div class="contact-option-arrow">→</div>
-          </a>
-          <a href="tel:+2347039917112" class="contact-option">
-            <div class="contact-option-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.05 3.4 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
-            </div>
-            <div>
-              <div class="contact-option-label">Call or WhatsApp</div>
-              <div class="contact-option-sub">+234 (0)703 991 7112</div>
-            </div>
-            <div class="contact-option-arrow">→</div>
-          </a>
-        </div>
-      </div>
-
+   <div class="contact-left">
+    <p>If you'd like to know more before filling the form about a specific service, how the process works, or whether this is the right fit for you feel free to reach out directly. I'm happy to help you figure it out.</p>
+    <div class="contact-details">
+     <a href="mailto:zinnynwodo@gmail.com" class="contact-detail-item">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      zinnynwodo@gmail.com
+     </a>
     </div>
+    <div class="contact-socials">
+     <a href="https://www.linkedin.com/in/ezinne-nwodo-0b3567228/" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+     </a>
+     <a href="https://www.instagram.com/zinny.nw_" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Instagram
+     </a>
+     <a href="https://x.com/ezinnenwodo1" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+      Twitter / X
+     </a>
+    </div>
+   </div>
+
+   <div class="contact-right">
+    <div class="contact-right-title">Ready to get started?</div>
+    <div class="contact-right-sub">Take the first step fill in the short form and I'll be in touch within 24 to 48 hours.</div>
+    <div class="contact-options">
+     <a href="https://forms.gle/zATxuWakhT6nJe8h9" target="_blank" class="contact-option">
+      <div class="contact-option-icon">
+       <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+       <div class="contact-option-label">Get Started</div>
+       <div class="contact-option-sub">Fill the short form takes 2 minutes</div>
+      </div>
+      <div class="contact-option-arrow">→</div>
+     </a>
+     <a href="mailto:zinnynwodo@gmail.com" class="contact-option">
+      <div class="contact-option-icon">
+       <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+       <div class="contact-option-label">Send an enquiry</div>
+       <div class="contact-option-sub">zinnynwodo@gmail.com</div>
+      </div>
+      <div class="contact-option-arrow">→</div>
+     </a>
+    </div>
+   </div>
+
   </div>
+ </div>
 </section>
 
 <footer>
-  <span class="footer-logo">Ezinne Nwodo</span>
-  <span>© 2026 · Career Consultant · Lagos, Nigeria</span>
-  <a href="https://ezinnejoan.github.io" class="footer-link">Marketing Portfolio →</a>
+ <span class="footer-logo">Ezinne Nwodo</span>
+ <span>© 2026 · Career Consultant · Lagos, Nigeria</span>
+ <a href="https://ezinnejoan.github.io" class="footer-link">Marketing Portfolio →</a>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+ const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+   if (e.isIntersecting) {
+    e.target.classList.add('visible');
+    observer.unobserve(e.target);
+   }
+  });
+ }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 </body>
